@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  localtunnel:
+    build: ./localtunnel
+    image: taichunmin/localtunnel-server:latest
+  nginx:
+    build: ./nginx
+    image: taichunmin/localtunnel-nginx:latest

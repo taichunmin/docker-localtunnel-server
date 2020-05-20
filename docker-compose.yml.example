@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  localtunnel:
+    image: taichunmin/localtunnel-server:latest
+    network_mode: host
+    restart: always
+    command: >
+      node
+      -r esm
+      ./bin/server
+      --port 3000
+      --domain example.com
+  nginx:
+    image: taichunmin/localtunnel-nginx:latest
+    network_mode: host
+    restart: always
+    volumes:
+    - "./data/etc-letsencrypt/:/etc/letsencrypt"
